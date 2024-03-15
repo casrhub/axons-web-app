@@ -12,4 +12,3 @@ function ReactSwagger({ spec }: Props) {
 }
 
 export default ReactSwagger;
-
