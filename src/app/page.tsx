@@ -1,6 +1,5 @@
 "use client"
 import Audio from "./components/Audio"
-import Navbar from "./components/Navbar";
 import { BsRecord2 } from "react-icons/bs";
 import { IoMdCloudUpload } from "react-icons/io";
 import { useState } from 'react';
@@ -14,7 +13,6 @@ export default function Home() {
   };
   return (
     <div className="bg-gray-100">
-      <Navbar />
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="text-center mb-4">
           
