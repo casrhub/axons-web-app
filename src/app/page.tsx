@@ -3,6 +3,7 @@ import Audio from "./components/Audio"
 import { BsRecord2 } from "react-icons/bs";
 import { IoMdCloudUpload } from "react-icons/io";
 import { useState } from 'react';
+import { PageWrapper } from "./page_wraper";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -12,6 +13,7 @@ export default function Home() {
     setShowModal(true);
   };
   return (
+    <PageWrapper>
     <div className="bg-gray-100">
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="text-center mb-4">
@@ -39,5 +41,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </PageWrapper>
   );
 }
