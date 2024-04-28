@@ -19,7 +19,8 @@ const Navbar = () => {
 
   // Array containing navigation items
   const navItems = [
-    { id: 1, text: 'Study' },  
+    { id: 1, text: 'Study' },
+    { id: 2, text: 'Feedbacks' },  
     { id: 4, text: 'About' },
     { id: 5, text: 'Contact' },
   ];
@@ -46,7 +47,11 @@ const Navbar = () => {
               <Link href="/about_us">
                 {item.text}
               </Link>
-            ) : item.text === 'Contact' ? (
+            ) : item.text === 'Feedbacks' ? (
+              <Link href="/Feedbacks_hist">
+                {item.text}
+              </Link>
+            ): item.text === 'Contact' ? (
               <Link href="/contact_us">
                 {item.text}
               </Link>
@@ -91,7 +96,11 @@ const Navbar = () => {
               <Link href="/about_us">
                 {item.text}
               </Link>
-            ) : item.text === 'Contact' ? (
+            ) : item.text === 'Feedbacks' ? (
+              <Link href="/Feedbacks_hist">
+                {item.text}
+              </Link>
+            ): item.text === 'Contact' ? (
               <Link href="/contact_us">
                 {item.text}
               </Link>
