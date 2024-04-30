@@ -24,9 +24,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-gray-100">
-      <Navbar />
-    
+    <div className="bg-gray-100">  
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="text-center mb-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-6xl font-bold">
