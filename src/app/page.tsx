@@ -39,13 +39,9 @@ export default function Home() {
             onClick={handleRecordClick}
           >
             <div className="mr-2">Record Your Explanation</div>
-            <BsRecord2 size={26} className="text-white" />
+            <BsRecord2 size={37} className="text-white" />
           </div>
 
-          <div className="flex items-center justify-center bg-indigo-900 text-white text-sm rounded-2xl w-1/2 h-1/4 font-bold hover:bg-violet-600">
-            <div className="mr-2">Upload</div>
-            <IoMdCloudUpload size={24} className="text-white" />
-          </div>
         </div>
 
         {showModal && (
