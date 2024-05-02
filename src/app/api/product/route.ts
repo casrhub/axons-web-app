@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
+import { Pool } from 'pg';
 
 // Initialize the OpenAI client with your API key
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
+});
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL, // Your Neon database URL
 });
 
 export async function POST(request: Request) {
@@ -24,10 +29,37 @@ export async function POST(request: Request) {
       model: "gpt-3.5-turbo-0125",
     });
 
+    const responseText = completion.choices[0].message.content;
+
+    // Store the response in the Neon database
+    const client = await pool.connect();
+try {
+  // Attempt to create the table if it doesn't exist
+  const createTableText = `
+    CREATE TABLE IF NOT EXISTS responses (
+      id SERIAL PRIMARY KEY,
+      transcript TEXT,
+      response TEXT
+    );
+  `;
+  await client.query(createTableText);
+
+  // Insert the transcript and response into the table
+  const insertText = 'INSERT INTO responses (transcript, response) VALUES ($1, $2)';
+  await client.query(insertText, [transcript, responseText]);
+} catch (error) {
+  console.error('Database operation failed:', error);
+  // Handle the error appropriately
+} finally {
+  client.release();
+}
+
     // Return the response from the model
     return NextResponse.json({
-      response: completion.choices[0].message.content,
+      response: responseText,
     });
+
+    
 
   } catch (error) {
     console.error('Error:', error);
