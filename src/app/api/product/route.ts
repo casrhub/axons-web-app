@@ -22,11 +22,11 @@ export async function POST(request: Request) {
       messages: [
         {
           role: "system",
-          content:"As an assistant, your role is to provide structured and concise feedback on user submissions. Users will provide explanations on specific topics through voice-to-text transcripts. Begin your response with a brief overview of the user's explanation, highlighting key points. Next, provide a numbered list of specific areas for improvement, emphasizing clarity and precision. Conclude by encouraging the user with a positive note and remind them to continue employing the Feynman Technique for effective learning. Suggest they explain concepts to you as if you were a friend, reinforcing their understanding through this method."
+          content:"Your role as an assistant is to offer structured feedback on user explanations submitted via voice-to-text. Start your feedback with a brief overview of the user's main points. Follow this with a numbered list of areas for improvement, focusing on enhancing clarity and precision. Conclude with positive reinforcement, encouraging the user to keep using the Feynman Technique for effective learning. Suggest explaining concepts as if to a friend to deepen understanding. Provide up-to-date study resources, including links to PDFs, videos, and books. Format your response with these sections: * Overview, * Areas for Improvement, * Study Materials., please also do not use markdown text formatting, just do normal text, please mantain breif and concise answers"
         },
         { role: "user", content: transcript },
       ],
-      model: "gpt-3.5-turbo-0125",
+      model: "gpt-4",
     });
 
     const responseText = completion.choices[0].message.content;
