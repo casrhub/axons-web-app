@@ -1,9 +1,8 @@
 "use client"
 import React, { useState } from 'react';
 import Audio from "./components/Audio"
-import Navbar from "./components/Navbar";
 import { BsRecord2 } from "react-icons/bs";
-import { IoMdCloudUpload } from "react-icons/io";
+import { IoMdCloseCircle } from "react-icons/io";
 
 export default function Home() {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -45,13 +44,16 @@ export default function Home() {
         </div>
 
         {showModal && (
-          <div id="modal-backdrop" className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" onClick={handleOutsideClick}>
-              <div className="bg-white p-5 rounded-lg" onClick={(e) => e.stopPropagation()}>
-                <Audio />
-                <button onClick={closeModal} className="mt-2">Close</button>
-              </div>
-          </div>
-        )}
+  <div id="modal-backdrop" className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" onClick={handleOutsideClick}>
+    <div className="relative bg-white p-5 rounded-lg" onClick={(e) => e.stopPropagation()}>
+      <div className="absolute top-0 right-0 p-4">
+        <button onClick={closeModal} className="text-xl"><IoMdCloseCircle /></button>
+      </div>
+      <Audio />
+    </div>
+  </div>
+)}
+
       </div>
     </div>
   );
