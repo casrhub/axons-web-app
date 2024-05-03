@@ -4,6 +4,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "strictNullChecks": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -21,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api-documentation/page.jsx", "src/api-documentation/page.jsx", "src/app/test/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api-documentation/page.jsx", "src/api-documentation/page.jsx", "src/app/test/page.jsx", "src/app/api/trpc/[trpc].js"],
   "exclude": ["node_modules"]
 }

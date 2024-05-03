@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import axons from "../images/axons.png"
 import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from "framer-motion";
 
 
 
@@ -17,7 +19,8 @@ const Navbar = () => {
 
   // Array containing navigation items
   const navItems = [
-    { id: 1, text: 'Study' },  
+    { id: 1, text: 'Study' },
+    { id: 2, text: 'Feedbacks' },  
     { id: 4, text: 'About' },
     { id: 5, text: 'Contact' },
   ];
@@ -32,16 +35,35 @@ const Navbar = () => {
     </div>
 
 
+      {/*Edited Julian */}
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
-        {navItems.map(item => (
+      {navItems.map(item => (
           <li
             key={item.id}
             className='p-4 hover:bg-[#312e81] rounded-xl m-2 cursor-pointer duration-300 hover:text-indigo-400'
           >
-            {item.text}
+            {item.text === 'About' ? (
+              <Link href="/about_us">
+                {item.text}
+              </Link>
+            ) : item.text === 'Feedbacks' ? (
+              <Link href="/Feedbacks_hist">
+                {item.text}
+              </Link>
+            ): item.text === 'Contact' ? (
+              <Link href="/contact_us">
+                {item.text}
+              </Link>
+            ) : item.text === 'Study' ? (
+              <Link href="/">
+                {item.text}
+              </Link>
+            ) : (
+              <span>{item.text}</span>
+            )}
           </li>
-        ))}
+      ))}
       </ul>
 
       {/* Mobile Navigation Icon */}
@@ -70,7 +92,25 @@ const Navbar = () => {
             key={item.id}
             className='p-4 hover:bg-[#312e81] rounded-xl m-2 cursor-pointer duration-300 hover:text-indigo-400'
           >
-            {item.text}
+            {item.text === 'About' ? (
+              <Link href="/about_us">
+                {item.text}
+              </Link>
+            ) : item.text === 'Feedbacks' ? (
+              <Link href="/Feedbacks_hist">
+                {item.text}
+              </Link>
+            ): item.text === 'Contact' ? (
+              <Link href="/contact_us">
+                {item.text}
+              </Link>
+            ) : item.text === 'Study' ? (
+              <Link href="/">
+                {item.text}
+              </Link>
+            ) : (
+              <span>{item.text}</span>
+            )}
           </li>
         ))}
       </ul>
